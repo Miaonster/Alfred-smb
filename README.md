@@ -3,7 +3,7 @@ Alfred-smb
 
 This is an *Alfred* workflow.
 
-This workflow will help you convert smb path  '\\\\...' and 'smb://...'. 
+This workflow will help you convert smb between path  '\\\\...' and 'smb://...'. 
 
 ### Download
 
