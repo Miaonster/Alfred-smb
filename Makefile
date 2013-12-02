@@ -1,4 +1,6 @@
-ALFREDWORKFLOW_NAME=smb.alfredworkflow
+NAME=smb
+VERSION = 0.1.0
+ALFREDWORKFLOW_NAME=${NAME}-${VERSION}.alfredworkflow
 
 default:
 	mkdir -p ./bin;
@@ -6,3 +8,6 @@ default:
 
 install:
 	open bin/${ALFREDWORKFLOW_NAME}
+
+clean:
+	rm -rf bin
