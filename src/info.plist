@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>witcher42.smb.formatconverter</string>
+	<key>connections</key>
+	<dict>
+		<key>961526F2-9201-4F70-97C7-5A903630D54A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A70A4E1E-712E-4575-967A-0AA64960904D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9F467E51-7E85-4F52-ACB6-8219A96DE2B0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>witcher42</string>
+	<key>description</key>
+	<string>Covert smb path between '\\...' and 'smb://...'</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Smb</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Copied to clipboard</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A70A4E1E-712E-4575-967A-0AA64960904D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>smb</string>
+				<key>runningsubtext</key>
+				<string>Converting... Wait for a second please (●'◡'●)ﾉ♥</string>
+				<key>script</key>
+				<string>require( 'workflows.php' );
+
+$path = '{query}';
+
+if (strpos($path, 'smb:') === 0) {
+    $path = str_replace('smb:', '', $path);
+    $path = str_replace('/', '\\', $path);
+} else {
+    $pattern = '/\\\\/';
+    $replace = '/';
+    $path = 'smb:/' . preg_replace($pattern, $replace, $path);
+}
+
+$w = new Workflows();
+
+$w-&gt;result( $path, $path, $path, '', 'icon.png');
+
+echo $w-&gt;toxml();</string>
+				<key>subtext</key>
+				<string>enter to copy</string>
+				<key>title</key>
+				<string>Covert smb path between '\\...' and 'smb://...'</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>961526F2-9201-4F70-97C7-5A903630D54A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>9F467E51-7E85-4F52-ACB6-8219A96DE2B0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>961526F2-9201-4F70-97C7-5A903630D54A</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>9F467E51-7E85-4F52-ACB6-8219A96DE2B0</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>A70A4E1E-712E-4575-967A-0AA64960904D</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://github.com/witcher42/Alfred-smb</string>
+</dict>
+</plist>
