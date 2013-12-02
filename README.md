@@ -1,10 +1,6 @@
 Alfred-smb
 ==========
 
-Covert smb path between '\\\\...' and 'smb://...'
-
-### Introduction
-
 This is an *Alfred* workflow.
 
 This workflow will help you convert smb path  '\\\\...' and 'smb://...'. 
